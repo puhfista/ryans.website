@@ -8,13 +8,12 @@ app.enable('trust proxy');
 
 const ensureSecure = (req, res, next) => {
   if(req.secure){
-    // OK, continue
     return next();
   };
   res.redirect('https://' + req.hostname + req.url);
 };
 
-app.get('*', ensureSecure, (req, res)=> {
+app.get('*', (req, res)=> {
 	res.sendFile(path.resolve(__dirname, 'index.html'));
 });
 
