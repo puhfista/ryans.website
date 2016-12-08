@@ -14,10 +14,6 @@ const ensureSecure = (req, res, next) => {
 };
 
 app.get('*', ensureSecure, (req, res)=> {
-	if(!req.secure){
-		
-	}
-
 	res.sendFile(path.resolve(__dirname, 'index.html'));
 });
 
