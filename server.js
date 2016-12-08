@@ -4,6 +4,7 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 app.use(express.static(__dirname));
+app.enable('trust proxy');
 
 const ensureSecure = (req, res, next) => {
   if(req.secure){
